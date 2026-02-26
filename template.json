@@ -298,9 +298,10 @@
                     },
                     "dataDisks": [
                         {
-                            "createOption": "Attach",
+                            
                             "managedDisk": {
-                                "id": "[resourceId('Microsoft.Compute/disks', 'web1-data1')]"
+                                "storageAccountType": "Premium_LRS"
+                                                            
                             },
                             "deleteOption": "Detach",
                             "toBeDetached": false
