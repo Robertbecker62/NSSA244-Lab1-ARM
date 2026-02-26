@@ -296,17 +296,7 @@
                         },
                         "deleteOption": "Delete"
                     },
-                    "dataDisks": [
-                        {
-                            
-                            "managedDisk": {
-                                "storageAccountType": "Premium_LRS"
-                                                            
-                            },
-                            "deleteOption": "Detach",
-                            "toBeDetached": false
-                        }
-                    ],
+                    
                     "diskControllerType": "SCSI"
                 },
                 "osProfile": {
