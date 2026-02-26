@@ -320,7 +320,7 @@
                     },
                     "secrets": [],
                     "allowExtensionOperations": true,
-                    "requireGuestProvisionSignal": true
+                    
                 },
                 "securityProfile": {
                     "uefiSettings": {
