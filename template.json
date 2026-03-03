@@ -6,6 +6,10 @@
             "defaultValue": "WEB1",
             "type": "String"
         },
+        "virtualMachines_WEB2_name": {
+            "defaultValue": "WEB2",
+            "type": "String"
+        },
         "sshPublicKeys_WEB1_key_name": {
             "defaultValue": "WEB1_key",
             "type": "String"
@@ -23,6 +27,10 @@
             "type": "String"
         },
         "networkInterfaces_web1127_z2_name": {
+            "defaultValue": "web1127_z2",
+            "type": "String"
+        },
+        "networkInterfaces_web1127_z2_name2": {
             "defaultValue": "web1127_z2",
             "type": "String"
         },
