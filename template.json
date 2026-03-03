@@ -27,11 +27,11 @@
             "type": "String"
         },
         "networkInterfaces_web1127_z2_name": {
-            "defaultValue": "web1127_z2",
+            "defaultValue": "",
             "type": "String"
         },
         "networkInterfaces_web1127_z2_name2": {
-            "defaultValue": "NIC2",
+            "defaultValue": "web1127_z2Act2",
             "type": "String"
         },
         "networkSecurityGroups_NSG_WEB_name": {
