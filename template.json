@@ -346,6 +346,93 @@
                 }
             }
         },
+
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2024-11-01",
+            "name": "[parameters('virtualMachines_WEB2_name')]",
+            "location": "eastus2",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_web1127_z2_name2'))]"
+            ],
+            "zones": [
+                "2"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D2s_v3"
+                },
+                "additionalCapabilities": {
+                    "hibernationEnabled": false
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "canonical",
+                        "offer": "ubuntu-24_04-lts",
+                        "sku": "server",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_WEB2_name'), '_OsDisk_1_f88c38ca454744fbaa7a0c66b0847eb8')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS"
+                        },
+                        "deleteOption": "Delete"
+                    },
+                    
+                    "diskControllerType": "SCSI"
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_WEB2_name')]",
+                    "adminUsername": "azureuser",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": true,
+                        "ssh": {
+                            "publicKeys": [
+                                {
+                                    "path": "/home/azureuser/.ssh/authorized_keys",
+                                    "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCzmCAB7b10rnWgbaAur5u/vB6BWwhc+jWNhh8uXHGK83vvqe9NKckV6RG2WVhWjJeGZS7cFrv/fOROf6e2zaS5pXeXbklQXwBVXYjpITH1qgfe9VevvdEmSfzSykBfHXNFiwF1xMyN6xXM8P+PGagGSqNb2pEmrs7X07vuGMJkZ8wBlcWANuFSHxEoeN1hTiNpXG/g8wA2DtDpLDRBHqjFiUiTQGGzKb9rffoInsCqhFjnkPBX3wWLlG3jDSvQc00CrQgEFevFLECFmMST6K5Jzx2dovu1lPA5YO8birbu0SJeATI0bEb0n6Lch82lKTvdSyaqpx9MxYvkPoULzKu1qjbs1U46T8jFuMv/UZBK18qFVBV1PDSJwMqJcidWT5WTq1MlJGvRWuIi3OvpheZaUK8Eg0A3AeVHHpOFZPekH7WnUSCgQ+5FckqTIsQEip5A5v8e9gt9tiLR/X8syYNSKeqf2oXWdkeccNzjmJ0MXq4Gh9AVlue326/Z+HyW+zk= generated-by-azure"
+                                }
+                            ]
+                        },
+                        "provisionVMAgent": true,
+                        "patchSettings": {
+                            "patchMode": "ImageDefault",
+                            "assessmentMode": "ImageDefault"
+                        }
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    
+                },
+                "securityProfile": {
+                    "uefiSettings": {
+                        "secureBootEnabled": true,
+                        "vTpmEnabled": true
+                    },
+                    "securityType": "TrustedLaunch"
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_web1127_z2_name2'))]",
+                            "properties": {
+                                "deleteOption": "Detach"
+                            }
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true
+                    }
+                }
+            }
+        },
+
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2024-07-01",
